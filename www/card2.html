@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>KASAMAPLUS</title>
+  </head>
+  <body align="center" leftmargin="0" topmargin="0" onload="load()" >
+    <object id="plugin0" type="application/x-juart" width="0" height="0">
+      <param name="onload" value="pluginLoaded"  />
+    </object>
+    <div class="app">
+      <div data-role="page" data-theme="a" id="page_comport">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+          <a href="card1.html" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">กลับ</a>
+          <div class="nickname">
+            project
+          </div>
+          <div class="loginame">
+            login
+          </div>
+          <h1>อ่านการ์ด</h1>
+        </div>
+
+        <div data-role="main">
+          <form>
+            <ul data-role="listview" data-inset="true">
+              <li class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                  <div class="ui-block"><button class="ui-btn ui-corner-all ui-btn-a" id="comport_btn">เปิด</button></div>
+                </fieldset>
+              </li>
+              <li class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                  <div class="ui-block-a"><button class="ui-btn ui-corner-all ui-btn-a">ล้างข้อความ</button></div>
+                  <div class="ui-block-b"><button class="ui-btn ui-corner-all ui-btn-a">อ่านการ์ด</button></div>
+                </fieldset>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="card_sn">รหัสการ์ด </label>
+                <input readonly name="card_sn" id="card_sn" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="card_type">ชนิดการ์ด </label>
+                <input readonly name="card_type" id="card_type" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="area_name">โซน </label>
+                <input readonly name="area_name" id="area_name" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="customer_name">ลูกค้า </label>
+                <input readonly name="customer_name" id="customer_name" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="business_name">ประเภทกิจการ </label>
+                <input readonly name="business_name" id="business_name" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="price_id">อัตราค่าไฟฟ้าประเภทที่ </label>
+                <input readonly name="price_id" id="price_id" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="price_per_unit">ราคาต่อหน่วย (บาท/หน่วย) </label>
+                <input readonly name="price_per_unit" id="price_per_unit" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="sale_unit">หน่วยไฟฟ้าที่ขายล่าสุด (หน่วย) </label>
+                <input readonly name="sale_unit" id="sale_unit" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="buy_no">จำนวนครั้งที่เคยซื้อ </label>
+                <input readonly name="buy_no" id="buy_no" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="warn_unit">หน่วยไฟเตือน (หน่วย) </label>
+                <input name="warn_unit" id="warn_unit" value="" data-clear-btn="true" type="number"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="emerg_unit">หน่วยไฟฉุกเฉิน (หน่วย) </label>
+                <input name="emerg_unit" id="emerg_unit" value="" data-clear-btn="true" type="number"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="sale_date">วัน เวลาที่ซื้อ </label>
+                <input name="sale_date" id="sale_date" value="" data-clear-btn="true" type="number"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="create_date">วัน เวลาที่สร้างบัตร </label>
+                <input name="create_date" id="create_date" value="" data-clear-btn="true" type="number"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_sn">รหัสมิเตอร์ </label>
+                <input readonly name="meter_sn" id="meter_sn" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_type">ชนิดมิเตอร์ </label>
+                <input readonly name="meter_type" id="meter_type" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_status">สถานะมิเตอร์ </label>
+                <input readonly name="meter_status" id="meter_status" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_unit_fill">หน่วยไฟที่เติม </label>
+                <input readonly name="meter_unit_fill" id="meter_unit_fill" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_unit_used">หน่วยไฟที่ถูกใช้ </label>
+                <input readonly name="meter_unit_used" id="meter_unit_used" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_unit_remain">หน่วยไฟคงเหลือ </label>
+                <input readonly name="meter_unit_remain" id="meter_unit_remain" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="meter_unit_start">เลขหน่วยไฟตั้งต้น </label>
+                <input readonly name="meter_unit_start" id="meter_unit_start" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="buzz">เสียงเตือน </label>
+                <input readonly name="buzz" id="buzz" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="unit_change">เมื่อหน่วยไฟลดลง </label>
+                <input readonly name="unit_change" id="unit_change" value="" data-clear-btn="false" type="text"/>
+              </li>
+              <li class="ui-field-contain">
+                <label class="text_label_right" for="count_create">จำนวนครั้งที่สร้างบัตรใหม่ </label>
+                <input name="count_create" id="count_create" value="" data-clear-btn="true" type="number"/>
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <!--
+        <div data-role="panel" id="page_panel" data-display="push">
+          <ul data-role="listview">
+            <li><a href="home.html" >กลับ     </a></li>
+            <li><a href="card2.html">อ่านการ์ด </a></li>
+            <li><a href="card3.html">ตั้งค่าการ์ด</a></li>
+            <li><a href="card4.html">เพิ่มการ์ด </a></li>
+          </ul>
+        </div>
+        -->
+
+      </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"                   ></script>
+    <script type="text/javascript" src="js/index.js"                  ></script>
+    <script type="text/javascript" src="js/jquery.min.js"             ></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"      ></script>
+    <script type="text/javascript" src="js/jquery.ui.datepicker.js"   ></script>
+    <script type="text/javascript" src="js/kasamaplus.js"             ></script>
+  </body>
+</html>

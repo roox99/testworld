@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>KASAMAPLUS</title>
+  </head>
+  <body align="center" leftmargin="0" topmargin="0" >
+    <div class="app">
+      <div data-role="page" data-theme="a" id="page_other">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+          <a href="#page_panel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">menu</a>
+          <div class="nickname"></div>
+          <div class="loginame"></div>
+          <h1>ขายหน่วยไฟฟ้า</h1>
+        </div>
+        <div data-role="main">
+          <form>
+            <div name="STEP1" id="STEP1">
+              <ul data-role="listview" data-inset="true">
+                <li class="ui-field-contain">
+                  <div class="ui-block"><input type="button" value="เครื่องอ่านการ์ด" onclick="serialport_setting()" ></div>
+                </li>
+                <li class="ui-body ui-body-b">
+                  <fieldset class="ui-grid-a">
+                    <div class="ui-block-a"><input type="button" onclick="clearmsg_function()" value="ล้างข้อความ"></div>
+                    <div class="ui-block-b"><input type="button" onclick="readcard_function()" value="อ่านการ์ด"  ></div>
+                  </fieldset>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="card_id">รหัสการ์ด </label>
+                  <input readonly class="CardData" name="card_id" id="card_id" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="card_type">ชนิดการ์ด </label>
+                  <input readonly class="CardData" name="card_type" id="card_type" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="area_name">โซน </label>
+                  <input readonly class="CardData" name="area_name" id="area_name" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="customer_name">ลูกค้า </label>
+                  <input readonly class="CardData" name="customer_name" id="customer_name" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="business_name">ประเภทกิจการ </label>
+                  <input readonly class="CardData" name="business_name" id="business_name" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="serial_no">รหัสมิเตอร์ </label>
+                  <input readonly class="CardData" name="serial_no" id="serial_no" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="remain_unit">หน่วยไฟคงเหลือ (หน่วย) </label>
+                  <input readonly class="CardData" name="remain_unit" id="remain_unit" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="buy_num">จำนวนครั้งที่เคยซื้อ </label>
+                  <input readonly class="CardData" name="buy_num" id="buy_num" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="price_per_unit">ราคาต่อหน่วย (บาท/หน่วย) </label>
+                  <input readonly class="CardData" name="price_per_unit" id="price_per_unit" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="unit_sale">หน่วยไฟที่คงเหลือในการ์ด (หน่วย) </label>
+                  <input readonly class="CardData" name="unit_sale" id="unit_sale" value="" data-clear-btn="false" type="text"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="new_unit_sale">ต้องการเติมไฟฟ้าจำนวน (หน่วย) </label>
+                  <input class="CardData" name="unit_sale_new" id="unit_sale_new" value="" data-clear-btn="true" type="number"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="warning_unit">หน่วยไฟเตือน (หน่วย) </label>
+                  <input class="CardData" name="warning_unit" id="warning_unit" value="" data-clear-btn="true" type="number"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="emer_unit">หน่วยไฟฉุกเฉิน (หน่วย) </label>
+                  <input class="CardData" name="emer_unit" id="emer_unit" value="" data-clear-btn="true" type="number"/>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="buzz_silent">เสียงเตือน </label>
+                  <select name="buzz_silent" id="buzz_silent" data-theme="a">
+                    <option selected value=0x01>ปิด</option>
+                    <option value=0x00>เปิด</option>
+                  </select>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="unit_update">เมื่อหน่วยไฟลดลง </label>
+                  <select name="unit_update" id="unit_update" data-theme="a">
+                    <option selected value=0x04>ไม่แสดงทันที</option>
+                    <option value=0x00>แสดงทันที</option>
+                  </select>
+                </li>
+                <li class="ui-body ui-body-b">
+                  <fieldset class="ui-grid-a">
+                    <!--<div class="ui-block">-->
+                    <div class="ui-block" name="div_btn_step1_ok" id="div_btn_step1_ok" style="display:none;">
+                      <input type="button" value="บันทึก" onclick="sale_step1_to_step2_function()">
+                      <!-- <a href="sale2.html" class="ui-btn ui-btn-icon-text ui-corner-all">คำนวณค่าไฟฟ้า</a -->
+                    </div>
+                  </fieldset>
+                </li>
+              </ul>
+              <input type="hidden" class="CardData" name="sale_date"          id="sale_date"          />
+              <input type="hidden" class="CardData" name="sale_date_time"     id="sale_date_time"     />
+              <input type="hidden" class="CardData" name="create_date_time"   id="create_date_time"   />
+              <input type="hidden" class="CardData" name="area_id"            id="area_id"            />
+              <input type="hidden" class="CardData" name="business_id"        id="business_id"        />
+              <input type="hidden" class="CardData" name="customer_id"        id="customer_id"        />
+              <input type="hidden" class="CardData" name="price_id"           id="price_id"           />
+              <input type="hidden" class="CardData" name="card_remake"        id="card_remake"        />
+              <input type="hidden" class="CardData" name="post_paid"          id="post_paid"          />
+              <input type="hidden" class="CardData" name="meter_status"       id="meter_status"       />
+              <input type="hidden" class="CardData" name="unit_add"           id="unit_add"           />
+              <input type="hidden" class="CardData" name="buy_num"            id="buy_num"            />
+              <input type="hidden" class="CardData" name="start_unit"         id="start_unit"         />
+              <input type="hidden" class="CardData" name="pulse_count"        id="pulse_count"        />
+              <input type="hidden" class="CardData" name="pulse_1kwh"         id="pulse_1kwh"         />
+              <input type="hidden" class="CardData" name="unit_sale"          id="unit_sale"          />
+              <input type="hidden" class="CardData" name="unit_sale_sum"      id="unit_sale_sum"      />
+              <input type="hidden" class="CardData" name="used_unit"          id="used_unit"          />
+              <input type="hidden" class="CardData" name="remain_unit"        id="remain_unit"        />
+              <input type="hidden" class="CardData" name="buzz_peri_warn"     id="buzz_peri_warn"     />
+              <input type="hidden" class="CardData" name="buzz_hold_warn"     id="buzz_hold_warn"     />
+              <input type="hidden" class="CardData" name="panel_peri_norm"    id="panel_peri_norm"    />
+              <input type="hidden" class="CardData" name="panel_hold_norm"    id="panel_hold_norm"    />
+              <input type="hidden" class="CardData" name="panel_peri_warn"    id="panel_peri_warn"    />
+              <input type="hidden" class="CardData" name="panel_hold_warn"    id="panel_hold_warn"    />
+              <input type="hidden" class="CardData" name="buzz_silent_val"    id="buzz_silent_val"    />
+              <input type="hidden" class="CardData" name="unit_update_val"    id="unit_update_val"    />
+              <input type="hidden" class="CardData" name="methodVAT"          id="methodVAT"          />
+              <input type="hidden" class="CardData" name="percentVAT"         id="percentVAT"         />
+              <input type="hidden" class="CardData" name="warnmethod"         id="warnmethod"         />
+              <input type="hidden" class="CardData" name="warnmethodunit"     id="warnmethodunit"     />
+              <input type="hidden" class="CardData" name="warnmethodpercent"  id="warnmethodpercent"  />
+              <input type="hidden" class="CardData" name="gracemethod"        id="gracemethod"        />
+              <input type="hidden" class="CardData" name="gracemethodunit"    id="gracemethodunit"    />
+              <input type="hidden" class="CardData" name="gracemethodpercent" id="gracemethodpercent" />
+              <input type="hidden" class="CardData" name="price_exclude_tax"  id="price_exclude_tax"  />
+              <input type="hidden" class="CardData" name="price_include_tax"  id="price_include_tax"  />
+              <input type="hidden" class="CardData" name="price_tax"          id="price_tax"          />
+              <input type="hidden" class="CardData" name="price_per_unit_new" id="price_per_unit_new" />
+              <input type="hidden" class="CardData" name="warning_unit_new"   id="warning_unit_new"   />
+              <input type="hidden" class="CardData" name="emer_unit_new"      id="emer_unit_new"      />
+              <input type="hidden" class="CardData" name="buy_num_new"        id="buy_num_new"        />
+              <input type="hidden" class="CardData" name="code_sale"          id="code_sale"          />
+            </div><!-- STEP1 -->
+            <div name="STEP2" id="STEP2" style="display:none;">
+              <ul data-role="listview" data-inset="true">
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_card_id">รหัสการ์ด </label>
+                  <div class="ConfirmData" name="div_card_id" id="div_card_id" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_area_name">โซน </label>
+                  <div class="ConfirmData" name="div_area_name" id="div_area_name" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_customer_name">ลูกค้า </label>
+                  <div class="ConfirmData" name="div_customer_name" id="div_customer_name" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_business_name">ประเภทกิจการ </label>
+                  <div class="ConfirmData" name="div_business_name" id="div_business_name" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_serial_no">รหัสมิเตอร์ </label>
+                  <div class="ConfirmData" name="div_serial_no" id="div_serial_no" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_price_id">อัตราค่าไฟฟ้าประเภทที่ </label>
+                  <div class="ConfirmData" name="div_price_id" id="div_price_id" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_price_per_unit">ราคาต่อหน่วย (บาท/หน่วย) </label>
+                  <div class="ConfirmData" name="div_price_per_unit" id="div_price_per_unit" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_buy_no">ครั้งที่ซื้อหน่วยไฟฟ้า </label>
+                  <div class="ConfirmData" name="div_buy_no" id="div_buy_no" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_warning_unit">หน่วยไฟเตือน (หน่วย) </label>
+                  <div class="ConfirmData" name="div_warning_unit" id="div_warning_unit" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_emer_unit">หน่วยไฟฉุกเฉิน (หน่วย) </label>
+                  <div class="ConfirmData" name="div_emer_unit" id="div_emer_unit" value=""></div>
+                </li>
+                <li class="ui-field-contain" name="li_warn_message" id="li_warn_message">
+                  <div class="warn_message" name="div_warn_message" id="div_warn_message" value="ไม่สามารถบันทึกข้อมูลไปที่ server !" style="display:none;"></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_code_sale">รหัสการขาย </label>
+                  <div class="ConfirmData" name="div_code_sale" id="div_code_sale" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_unit_sale_new">หน่วยไฟฟ้าที่ซื้อครั้งนี้ (หน่วย) </label>
+                  <div class="ConfirmData" name="div_unit_sale_new" id="div_unit_sale_new" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_unit_sale_sum">หน่วยไฟฟ้ารวมคงเหลือในการ์ด (หน่วย) </label>
+                  <div class="ConfirmData" name="div_unit_sale_sum" id="div_unit_sale_sum" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_price_exclude_tax">จำนวนเงินไม่รวมภาษีมูลค่าเพิ่ม (บาท) </label>
+                  <div class="ConfirmData" name="div_price_exclude_tax" id="div_price_exclude_tax" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_tax">ภาษีมูลค่าเพิ่ม (บาท) </label>
+                  <div class="ConfirmData" name="div_tax" id="div_tax" value=""></div>
+                </li>
+                <li class="ui-field-contain">
+                  <label class="text_label_right" for="div_price_include_tax">จำนวนเงินรวมภาษีมูลค่าเพิ่ม (บาท) </label>
+                  <div class="ConfirmData" name="div_price_include_tax" id="div_price_include_tax" value=""></div>
+                </li>
+                <li class="ui-body ui-body-b">
+                  <div name="div_btn_step2_ok" id="div_btn_step2_ok">
+                    <fieldset class="ui-grid-a">
+                      <div class="ui-block-a">
+                        <input type="button" value="ยกเลิก" onclick="sale_step2_to_step1_function()">
+                      </div>
+                      <div class="ui-block-b">
+                        <input type="button" value="ยืนยันการบันทึกข้อมูล" onclick="sale_step2_to_step3_function()">
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div name="div_btn_step2_nok" id="div_btn_step2_nok">
+                    <div class="ui-block">
+                      <input type="button" value="ยกเลิก" onclick="sale_step2_to_step1_function()">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div><!-- STEP2 -->
+            <div name="STEP3" id="STEP3" style="display:none;">
+              <ul data-role="listview" data-inset="true">
+                <li class="ui-field-contain" name="li_warn_finish" id="li_warn_finish">
+                  <div class="warn_message" name="div_warn_finish" id="div_warn_finish" style="display:none;"></div>
+                </li>
+                <li class="ui-body ui-body-b">
+                  <div name="div_btn_step3_ok" id="div_btn_step3_ok">
+                    <!-- <fieldset class="ui-grid-a"> -->
+                    <div class="ui-block">
+                      <input type="button" value="หยุด" onclick="action_stop_circle()">
+                    </div>
+                    <div class="ui-block">
+                      <input type="button" value="เขียนลงการ์ดอีกครั้ง" onclick="fillunit_function()">
+                    </div>
+                    <!-- </fieldset> -->
+                    <div class="ui-block">
+                      <input type="button" value="กลับไปหน้าแรก" onclick="sale_step3_to_step1_function()">
+                    </div>
+                  </div>
+                  <div name="div_btn_step3_nok" id="div_btn_step3_nok">
+                    <div class="ui-block">
+                      <input type="button" value="บันทึกข้อมูลอีกครั้ง" onclick="sale_step2_to_step3_function()">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div><!-- STEP3 -->
+          </form>
+        </div>
+        <div data-role="panel" id="page_panel" data-display="push">
+          <ul data-role="listview">
+            <li><a href="home.html"        >กลับ              </a></li>
+            <li><a href="sale_redeem.html" >คืนค่าหน่วยไฟฟ้า     </a></li>
+            <li><a href="sale_history.html">ประวัติการขาย/รับคืน  </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"             ></script>
+    <script type="text/javascript" src="js/jquery.min.js"       ></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.ui.datepicker.js"></script> -->
+    <script type="text/javascript" src="js/index.js"            ></script>
+  </body>
+</html>

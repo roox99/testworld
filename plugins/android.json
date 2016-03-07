@@ -1,0 +1,41 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Serial\"><param name=\"android-package\" value=\"fr.drangies.cordova.serial.Serial\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "fr.drangies.cordova.serial": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.kasamaplus"
+        }
+    },
+    "dependent_plugins": {}
+}

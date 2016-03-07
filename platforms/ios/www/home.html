@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>KASAMAPLUS</title>
+  </head>
+  <body align="center" leftmargin="0" topmargin="0" >
+    <div class="app">
+      <div data-role="page" data-theme="a" id="page_home">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+          <a href="#page_panel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">menu</a>
+          <div class="nickname">
+            project
+          </div>
+          <div class="loginame">
+            login
+          </div>
+          <h1>คาซาม่าพลัส</h1>
+        </div>
+        <div data-role="main">
+          <br>
+          <table class="ui-responsive" width="99%" align="center">
+            <tr>
+              <td align="left"  width="50%">สามารถเข้าสู่ระบบได้ครั้งล่าสุด</td>
+              <td align="right" width="50%"><div id="lastsuccesslogin"></div></td>
+            </tr>
+            <tr>
+              <td align="left" >ไม่สามารถเข้าสู่ระบบได้ครั้งล่าสุด</td>
+              <td align="right"><div id="lastunsuccesslogin"></div></td>
+            </tr>
+          </table>
+          <br>
+          <table class="ui-responsive" width="99%" align="center">
+            <tr>
+              <td colspan=5 align="left">สถานะอิเลคทริกการ์ดในระบบ</td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+              <td bgcolor="#FFF200" align="center" width="20%" >ผู้ใช้   </td>
+              <td bgcolor="#FFF200" align="center" width="20%" >ผู้จัดการ</td>
+              <td bgcolor="#FFF200" align="center" width="20%" >รีเซต  </td>
+              <td bgcolor="#FFF200" align="center" width="20%" >ว่าง   </td>
+              <td bgcolor="#FFF200" align="center" width="20%" >รวม   </td>
+            </tr>
+            <tr>
+              <td align='center' ><div id="usercardcount"  ></div></td>
+              <td align='center' ><div id="admincardcount" ></div></td>
+              <td align='center' ><div id="resetcardcount" ></div></td>
+              <td align='center' ><div id="emptycardcount" ></div></td>
+              <td align='center' ><div id="sumarycardcount"></div></td>
+            </tr>
+          </table>
+          <br>
+          <table class="ui-responsive" width="99%" align="center">
+            <tr>
+              <td colspan=4 align="left">สถานะมิเตอร์ในระบบ</td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+              <td bgcolor="#FFF200" align="center" width="25%">Stock </td>
+              <td bgcolor="#FFF200" align="center" width="25%">In Use</td>
+              <td bgcolor="#FFF200" align="center" width="25%">Stop  </td>
+              <td bgcolor="#FFF200" align="center" width="25%">รวม   </td>
+            </tr>
+            <tr>
+              <td align='center' ><div id="meterstockcount"  ></div></td>
+              <td align='center' ><div id="meterinusecount"  ></div></td>
+              <td align='center' ><div id="meterstopcount"   ></div></td>
+              <td align='center' ><div id="sumarymetercount" ></div></td>
+            </tr>
+          </table>
+
+        </div>
+        <div data-role="panel" id="page_panel" data-display="push">
+          <ul data-role="listview">
+            <li><a href="index.html"       >ออกจากระบบ  </a></li>
+            <li><a href="user_add.html"    >บัญชีผู้ใช้งาน   </a></li>
+            <li><a href="config_unit.html" >กำหนดค่าระบบ </a></li>
+            <li><a href="info_card.html"   >ข้อมูลหลัก    </a></li>
+            <li><a href="sale.html">ระบบขาย     </a></li>
+            <li><a href="report_unit.html" >รายงาน      </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"             ></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"      ></script>
+    <script type="text/javascript" src="cordova.js"                   ></script>
+<!--<script type="text/javascript" src="js/jquery.ui.datepicker.js"   ></script> -->
+    <script type="text/javascript" src="js/index.js"                  ></script>
+  </body>
+</html>

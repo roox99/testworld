@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>KASAMAPLUS</title>
+  </head>
+  <body align="center" leftmargin="0" topmargin="0" >
+    <div class="app">
+      <div data-role="page" data-theme="a" id="page_home">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+          <a href="#page_panel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">menu</a>
+          <div class="nickname">
+            project
+          </div>
+          <div class="loginame">
+            login
+          </div>
+          <h1>รายงานรายพื้นที่</h1>
+        </div>
+        <div data-role="main">
+          กำลังพัฒนาอยู่
+        </div>
+        <div data-role="panel" id="page_panel" data-display="push">
+          <ul data-role="listview">
+            <li><a href="home.html"        >กลับ              </a></li>
+            <li><a href="report_sale.html" >รายงานการขาย/รับคืน </a></li>
+            <li><a href="report_tax.html"  >รายงานภาษีซื้อ      </a></li>
+            <li><a href="report_user.html" >รายงานรายลูกค้า     </a></li>
+        <!--<li><a href="report_area.html" >รายงานรายพื้นที่     </a></li>-->
+            <li><a href="report_unit.html" >รายงานการซื้อหน่วยไฟ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"                   ></script>
+    <script type="text/javascript" src="js/jquery.min.js"             ></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"      ></script>
+<!--<script type="text/javascript" src="js/jquery.ui.datepicker.js"   ></script> -->
+    <script type="text/javascript" src="js/index.js"                  ></script>
+  </body>
+</html>

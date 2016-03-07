@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css">
+    <title>KASAMAPLUS</title>
+  </head>
+  <body>
+    <div class="app">
+      <!--
+      <h1>Apache Cordova</h1>
+      <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+      </div>
+      -->
+      <div data-role="page">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+          <h1>&#xE04;&#xE32;&#xE0B;&#xE32;&#xE21;&#xE48;&#xE32;&#xE1E;&#xE25;&#xE31;&#xE2A;</h1>
+        </div>
+        <div data-role="main">
+          <div style="padding:10px 20px;">
+            <h3>&#xE01;&#xE23;&#xE38;&#xE13;&#xE32;&#xE01;&#xE23;&#xE2D;&#xE01;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;</h3>
+            <label for="database_name" class="ui-hidden-accessible">&#xE10;&#xE32;&#xE19;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;</label>
+            <!-- <input align="center" name="database_name" id="database_name" value="yproj" placeholder="ฐานข้อมูล" data-theme="a" type="text"> -->
+            <input align="center" name="database_name" id="database_name" value="" placeholder="&#xE10;&#xE32;&#xE19;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;" data-theme="a" type="text">
+            <label for="login_name" class="ui-hidden-accessible">&#xE0A;&#xE37;&#xE48;&#xE2D;&#xE25;&#xE47;&#xE2D;&#xE01;&#xE2D;&#xE34;&#xE19;</label>
+            <!-- <input align="center" name="login_name" id="login_name" value="art" placeholder="ชื่อล็อกอิน" data-theme="a" type="text"> -->
+            <input align="center" name="login_name" id="login_name" value="" placeholder="&#xE0A;&#xE37;&#xE48;&#xE2D;&#xE25;&#xE47;&#xE2D;&#xE01;&#xE2D;&#xE34;&#xE19;" data-theme="a" type="text">
+            <label for="password" class="ui-hidden-accessible">&#xE23;&#xE2B;&#xE31;&#xE2A;&#xE1C;&#xE48;&#xE32;&#xE19;</label>
+            <!-- <input align="center" name="password" id="password" value="kasama" placeholder="รหัสผ่าน" data-theme="a" type="password"> -->
+            <input align="center" name="password" id="password" value="" placeholder="&#xE23;&#xE2B;&#xE31;&#xE2A;&#xE1C;&#xE48;&#xE32;&#xE19;" data-theme="a" type="password">
+            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check" onclick="login()">&#xE40;&#xE02;&#xE49;&#xE32;&#xE23;&#xE30;&#xE1A;&#xE1A;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!--<script type="text/javascript" src="js/kasamaplus.js"       ></script>-->
+  </body>
+</html>
